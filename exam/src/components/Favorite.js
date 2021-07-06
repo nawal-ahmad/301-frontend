@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import FormUpdate from './FormUpdate';
+
 export class Favorite extends Component {
   constructor(props) {
     super(props);
@@ -32,6 +33,9 @@ export class Favorite extends Component {
   showForm = (idx) => {
     this.setState({
       show: true,
+      idx: idx,
+      strDrinkThumb: this.state.favData[idx].strDrinkThumb,
+      strDrink: this.state.favData[idx].strDrink,
     });
   };
 
@@ -88,7 +92,7 @@ export class Favorite extends Component {
             );
           })}
         </Row>
-        <FornUpdate
+        <FormUpdate
           show={this.state.show}
           handleClose={this.handleClose}
           updateData={this.updateData}

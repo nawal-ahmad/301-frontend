@@ -20,11 +20,10 @@ export class Home extends Component {
 
   addFav = async (idDrink) => {
     const server = 'http://localhost:8080';
-
     const obj = {
-      idDrink: this.state.cocktailData,
-      strDrink: this.state.cocktailData,
-      strDrinkThumb: this.state.cocktailData,
+      idDrink: this.state.cocktailData[idDrink].idDrink,
+      strDrink: this.state.cocktailData[idDrink].strDrink,
+      strDrinkThumb: this.state.cocktailData[idDrink].strDrinkThumb,
     };
     const cocktailData = await axios.post(`${server}/addFav`, obj);
     console.log(cocktailData.data);
